@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import UseMemo from "./components/UseMemo";
-import ReactMemo from "./components/ReactMemo";
+import UseMemo from "./UseMemo";
+import ReactMemo from "./ReactMemo";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -12,13 +12,14 @@ const App = () => {
 
   return (
     <div>
-      <h1>React.useMemo</h1>
-      <h2>My todos</h2>
+      <h1>React Memo Assignment</h1>
+
       <button onClick={addTodo}>Add Todo</button>
       <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
 
       <UseMemo count={count} />
+
       <ReactMemo todos={todos} />
     </div>
   );
