@@ -15,13 +15,13 @@ const ReactMemo = React.memo(() => {
     <div>
       <h2>React.memo</h2>
       <input
-        id="skill-input"
+        id="skill-input" 
         type="text"
         value={newSkill}
         onChange={(e) => setNewSkill(e.target.value)}
       />
       <button id="add-skill" onClick={addSkill}>Add Skill</button>  {/* Ensuring button exists */}
-      <ul>
+      <ul id="skill-list">
         {skills.map((skill, index) => (
           <li key={index}>{skill}</li>
         ))}
