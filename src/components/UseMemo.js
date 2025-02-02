@@ -19,7 +19,7 @@ const UseMemo = () => {
     <div>
       <h1>React.useMemo</h1>
       <h2>My todos</h2>
-      <ul>
+      <ul id="todo-list">  
         {todos.map((todo, index) => (
           <li key={index}>{todo}</li>
         ))}
@@ -27,7 +27,7 @@ const UseMemo = () => {
       <button id="add-todo" onClick={addTodo}>Add Todo</button> 
       <br />
       <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button id="increment-count" onClick={() => setCount(count + 1)}>+</button>
       <h2>Expensive Calculation</h2>
       <p>{calculation}</p>
     </div>
