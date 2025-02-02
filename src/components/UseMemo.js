@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 
 const expensiveCalculation = (num) => {
   console.log("Calculating...");
-  return num * 100000000;
+  return num * 100000000; 
 };
 
 const UseMemo = ({ count }) => {
