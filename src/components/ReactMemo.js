@@ -1,33 +1,39 @@
 import React, { useState } from "react";
 
-const ReactMemo = React.memo(() => {
-  const [skills, setSkills] = useState(["HTML", "CSS", "JavaScript", "React"]);
-  const [newSkill, setNewSkill] = useState("");
+const ReactMemo = () => {
+  const [input, setInput] = useState("");
 
-  const addSkill = () => {
-    if (newSkill.length > 5) {
-      setSkills([...skills, newSkill]);
-      setNewSkill("");  
+  const [list, setList] = useState([]);
+
+  const onInput = (e) => {
+    const { value } = e.target;
+    setInput(value);
+  };
+  const onAddSkill = () => {
+    if (input.trim().length > 5) {
+      setList((prev) => [...prev, input.trim()]);
+      setInput("");
     }
   };
 
   return (
     <div>
-      <h2>React.memo</h2>
-      <input
-        id="skill-input" 
-        type="text"
-        value={newSkill}
-        onChange={(e) => setNewSkill(e.target.value)}
-      />
-      <button id="add-skill" onClick={addSkill}>Add Skill</button>  {/* Ensuring button exists */}
-      <ul id="skill-list">
-        {skills.map((skill, index) => (
-          <li key={index}>{skill}</li>
+      <h1>React.memo</h1>
+      <div>
+        <input
+          value={input}
+          onChange={onInput}
+          placeholder="Enter a custom task"
+        />
+        <button onClick={onAddSkill}>Add Skill</button>
+      </div>
+      <ul>
+        {list.map((i, index) => (
+          <li key={index}>{i}</li>
         ))}
       </ul>
     </div>
   );
-});
+};
 
-export default ReactMemo;
+export default React.memo(ReactMemo);
